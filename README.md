@@ -1,5 +1,12 @@
 # Bloom & Petal
 
+> **Note:** This is a demo project. Bloom & Petal is a fictional flower shop —
+> the business, address, phone number, and testimonials are all made up, and the
+> product and hero photos are AI-generated (see `assets/IMAGE-PROMPTS.md`).
+> The site is deliberately built with a 2016-era stack (React 15, create-react-app
+> 0.7, Material Design Lite) to serve as the starting point for an AI-agent
+> modernization exercise.
+
 Landing page for the Bloom & Petal flower shop, San Anselmo, CA.
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
