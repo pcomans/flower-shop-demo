@@ -31,3 +31,26 @@ if (fs.existsSync(sendIndex)) {
     console.log('patched: send res._headers -> res.getHeaders()');
   }
 }
+
+// 3. react-dev-utils/openBrowser.js unconditionally calls opn(url) and ignores
+//    BROWSER=none. On a headless machine opn spawns xdg-open, which exits
+//    non-zero, so the promise opn returns rejects. In 2016 an unhandled
+//    rejection was only a warning; modern Node treats it as fatal and kills
+//    `npm start`. Honor BROWSER=none and swallow opn's async rejection.
+var openBrowser = path.join(rsModules, 'react-dev-utils', 'openBrowser.js');
+if (fs.existsSync(openBrowser)) {
+  var ob = fs.readFileSync(openBrowser, 'utf8');
+  if (ob.indexOf('process.env.BROWSER') === -1) {
+    ob = ob
+      .replace(
+        'function openBrowser(url) {',
+        'function openBrowser(url) {\n  if (process.env.BROWSER === \'none\') {\n    return false;\n  }'
+      )
+      .replace(
+        /try \{\s*opn\(url\);\s*return true;/,
+        'try {\n    var opened = opn(url);\n    if (opened && typeof opened.catch === \'function\') { opened.catch(function () {}); }\n    return true;'
+      );
+    fs.writeFileSync(openBrowser, ob);
+    console.log('patched: openBrowser honors BROWSER=none and swallows opn rejection');
+  }
+}
