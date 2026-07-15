@@ -7,7 +7,7 @@
 > 0.7, Material Design Lite) to serve as the starting point for an AI-agent
 > modernization exercise.
 
-Landing page for the Bloom & Petal flower shop, San Anselmo, CA.
+Landing page for the Bloom & Petal flower shop.
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
