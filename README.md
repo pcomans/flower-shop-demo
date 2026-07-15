@@ -26,8 +26,15 @@ Builds the app for production to the `build` folder.
 
 ## Running a 2016 toolchain on modern Node
 
-Two of react-scripts 0.7's bundled dependencies use Node APIs that no longer
-exist (`process.binding('http_parser')` in websocket-driver 0.6.5 and
-`res._headers` in send 0.14). `scripts/patch-2016-deps.js` fixes both inside
-`node_modules` and runs automatically on `npm install` (postinstall). Everything
-else — webpack 1, Babel 6, the dev server — runs unmodified.
+Three of react-scripts 0.7's bundled dependencies trip up modern Node:
+
+* `process.binding('http_parser')` in websocket-driver 0.6.5 (removed API)
+* `res._headers` in send 0.14 (removed API)
+* `react-dev-utils/openBrowser.js` ignores `BROWSER=none` and lets the
+  browser-opener's rejected promise go unhandled; on a headless machine that
+  now crashes `npm start` instead of just warning.
+
+`scripts/patch-2016-deps.js` fixes all three inside `node_modules` and runs
+automatically on `npm install` (postinstall). On a headless server, start the
+dev server with `BROWSER=none npm start`. Everything else — webpack 1, Babel 6,
+the dev server — runs unmodified.
