@@ -7,16 +7,21 @@ import Footer from './components/Footer';
 import './App.css';
 
 var BOUQUETS = [
-  { id: 1, name: 'Blush Romance', price: 49.99, description: 'A dozen blush roses hand-tied with baby\'s breath and seeded eucalyptus.', petals: ['#F48FB1', '#F8BBD0', '#EC407A'] },
-  { id: 2, name: 'Sunny Morning', price: 34.99, description: 'Cheerful sunflowers and yellow tulips to brighten any kitchen table.', petals: ['#FFD54F', '#FFB300', '#FFF176'] },
-  { id: 3, name: 'Lavender Dream', price: 44.99, description: 'Fragrant lavender, lisianthus and purple stock in a rustic wrap.', petals: ['#B39DDB', '#9575CD', '#D1C4E9'] },
-  { id: 4, name: 'Garden Party', price: 54.99, description: 'A mixed garden bouquet of peonies, ranunculus and sweet peas.', petals: ['#F06292', '#BA68C8', '#FFD54F'] },
-  { id: 5, name: 'Coral Charm', price: 59.99, description: 'Statement coral peonies with garden roses and trailing greenery.', petals: ['#FF8A65', '#FF7043', '#FFAB91'] },
-  { id: 6, name: 'White Whisper', price: 64.99, description: 'Elegant white lilies, roses and freesia — a classic for any occasion.', petals: ['#FAFAFA', '#F5F5F5', '#E1F5FE'] },
-  { id: 7, name: 'Autumn Ember', price: 39.99, description: 'Burnt-orange dahlias, red hypericum berries and copper leaves.', petals: ['#FF7043', '#D84315', '#FFB300'] },
-  { id: 8, name: 'Midnight Rose', price: 69.99, description: 'Deep red velvet roses with dark foliage. Dramatic and unforgettable.', petals: ['#C62828', '#B71C1C', '#E53935'] },
-  { id: 9, name: 'Spring Fling', price: 29.99, description: 'A bright handful of daffodils, hyacinth and grape muscari.', petals: ['#FFF176', '#4FC3F7', '#AED581'] },
-  { id: 10, name: 'Peony Parade', price: 74.99, description: 'Nothing but peonies. A lush, showstopping armful in pinks and creams.', petals: ['#F48FB1', '#FCE4EC', '#F06292'] }
+  { id: 1, name: 'Blush Hour', price: 54.99, description: 'Blush garden roses, pale ranunculus and ivory sweet peas with silvery eucalyptus.', image: '/img/bouquets/blush-hour.jpg' },
+  { id: 2, name: 'Citrus Sunrise', price: 39.99, description: 'Orange ranunculus, yellow tulips, white chamomile and golden solidago.', image: '/img/bouquets/citrus-sunrise.jpg' },
+  { id: 3, name: 'Moonlit Meadow', price: 49.99, description: 'Blue delphinium, white lisianthus, lavender scabiosa and dusty miller.', image: '/img/bouquets/moonlit-meadow.jpg' },
+  { id: 4, name: 'Wild at Heart', price: 44.99, description: 'Cosmos, cornflowers, snapdragons, feverfew and wild grasses — a field in a vase.', image: '/img/bouquets/wild-at-heart.jpg' },
+  { id: 5, name: 'Velvet Nocturne', price: 64.99, description: 'Wine dahlias, plum calla lilies, dark red roses and burgundy smoke bush.', image: '/img/bouquets/velvet-nocturne.jpg' },
+  { id: 6, name: 'Cloud Nine', price: 59.99, description: 'White hydrangeas, ivory roses, lisianthus and baby\'s breath. A classic.', image: '/img/bouquets/cloud-nine.jpg' },
+  { id: 7, name: 'Peach Picnic', price: 42.99, description: 'Peach garden roses, apricot stock, coral carnations and fresh mint.', image: '/img/bouquets/peach-picnic.jpg' },
+  { id: 8, name: 'Coastal Calm', price: 52.99, description: 'Powder-blue hydrangeas, white roses, globe thistle and eucalyptus.', image: '/img/bouquets/coastal-calm.jpg' },
+  { id: 9, name: 'Cherry Fizz', price: 38.99, description: 'Cherry-red tulips, hot-pink spray roses, coral gerberas and waxflower.', image: '/img/bouquets/cherry-fizz.jpg' },
+  { id: 10, name: 'Greenhouse Modern', price: 69.99, description: 'Coral anthuriums, phalaenopsis orchids and sculptural monstera leaves.', image: '/img/bouquets/greenhouse-modern.jpg' },
+  { id: 11, name: 'Lavender Letter', price: 36.99, description: 'Lavender, lilac, purple stock, violet statice and fragrant rosemary.', image: '/img/bouquets/lavender-letter.jpg' },
+  { id: 12, name: 'Golden Hour', price: 46.99, description: 'Sunflowers, mustard chrysanthemums, burnt-orange roses, wheat and olive.', image: '/img/bouquets/golden-hour.jpg' },
+  { id: 13, name: 'Tiny Joys', price: 29.99, description: 'Petite spray roses, lavender asters, craspedia and pastel mini carnations.', image: '/img/bouquets/tiny-joys.jpg' },
+  { id: 14, name: 'Forever Field', price: 49.99, description: 'Dried pampas, strawflowers, bunny-tail grass and preserved eucalyptus.', image: '/img/bouquets/forever-field.jpg' },
+  { id: 15, name: 'After the Rain', price: 47.99, description: 'Deep-blue iris, delphinium, white tulips, ferns and eucalyptus.', image: '/img/bouquets/after-the-rain.jpg' }
 ];
 
 class App extends Component {

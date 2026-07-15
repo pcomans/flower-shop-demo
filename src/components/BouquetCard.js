@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import BouquetArt from './BouquetArt';
 
 class BouquetCard extends Component {
   constructor(props) {
@@ -16,7 +15,7 @@ class BouquetCard extends Component {
     return (
       <div className="mdl-card mdl-shadow--2dp bouquet-card">
         <div className="mdl-card__media bouquet-card__media">
-          <BouquetArt name={bouquet.name} petals={bouquet.petals} />
+          <img src={bouquet.image} alt={bouquet.name} className="bouquet-card__photo" />
         </div>
         <div className="mdl-card__title">
           <h2 className="mdl-card__title-text">{bouquet.name}</h2>
@@ -44,7 +43,7 @@ BouquetCard.propTypes = {
     name: React.PropTypes.string.isRequired,
     price: React.PropTypes.number.isRequired,
     description: React.PropTypes.string.isRequired,
-    petals: React.PropTypes.arrayOf(React.PropTypes.string).isRequired
+    image: React.PropTypes.string.isRequired
   }).isRequired,
   onAddToCart: React.PropTypes.func.isRequired
 };

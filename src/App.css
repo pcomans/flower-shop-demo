@@ -63,7 +63,8 @@
 
 .hero {
   margin-top: 56px;
-  background: linear-gradient(135deg, #E8C7CF 0%, #D9CBE3 55%, #C5B8DC 100%);
+  background: #D9CBE3 url('/img/hero.jpg') center center no-repeat;
+  background-size: cover;
   text-align: center;
 }
 
@@ -194,7 +195,7 @@
   padding: 0;
 }
 
-.bouquet-art {
+.bouquet-card__photo {
   display: block;
   width: 100%;
   height: auto;
