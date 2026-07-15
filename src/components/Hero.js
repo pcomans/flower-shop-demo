@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 var PROMOS = [
-  '🌸 Free same-day delivery on orders over $50!',
-  '💐 Wedding season is here — book a free consultation!',
-  '🌹 Join our loyalty club and get 10% off your first bouquet!'
+  'Free same-day delivery on orders over $50!',
+  'Wedding season is here — book a free consultation!',
+  'Join our loyalty club and get 10% off your first bouquet!'
 ];
 
 class Hero extends Component {

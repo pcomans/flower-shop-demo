@@ -19,7 +19,7 @@ function CartPanel(props) {
       </div>
 
       {props.items.length === 0 ? (
-        <p className="cart-panel__empty">Your cart is empty. Go pick some flowers! 🌷</p>
+        <p className="cart-panel__empty">Your cart is empty. Go pick some flowers!</p>
       ) : (
         <div>
           <ul className="cart-panel__list">
