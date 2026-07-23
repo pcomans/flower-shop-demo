@@ -1,0 +1,12 @@
+/*
+ * Tailwind CSS entry point.
+ *
+ * We deliberately import only the theme (design tokens) and utilities layers
+ * and OMIT Tailwind's preflight/base reset: the site's look is fully defined by
+ * react-material-expressive's styles.css + theme.css + App.css, and adding
+ * preflight would restyle base elements and change that pixel-for-pixel.
+ * Utilities live in their own cascade layer, so they never override the
+ * existing unlayered component/app CSS.
+ */
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);

@@ -2,7 +2,7 @@
 // icon along an arced path, purely with the Web Animations API — the
 // component library has no primitive for choreographing motion between two
 // arbitrary elements.
-export function flyToCart(sourceEl, targetEl) {
+export function flyToCart(sourceEl: HTMLElement | null, targetEl: HTMLElement | null): void {
   if (!sourceEl || !targetEl) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
@@ -10,7 +10,7 @@ export function flyToCart(sourceEl, targetEl) {
   const dstRect = targetEl.getBoundingClientRect();
   if (srcRect.width === 0 || srcRect.height === 0) return;
 
-  const clone = sourceEl.cloneNode(true);
+  const clone = sourceEl.cloneNode(true) as HTMLElement;
   Object.assign(clone.style, {
     position: 'fixed',
     left: `${srcRect.left}px`,
@@ -33,7 +33,7 @@ export function flyToCart(sourceEl, targetEl) {
   const arc = -Math.min(160, Math.abs(dx) * 0.4 + 40);
 
   const steps = 12;
-  const keyframes = [];
+  const keyframes: Keyframe[] = [];
   for (let i = 0; i <= steps; i++) {
     const t = i / steps;
     const x = dx * t;

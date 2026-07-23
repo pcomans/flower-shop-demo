@@ -1,7 +1,12 @@
+import type { FormEvent } from 'react';
 import { Button, InputOutlined, MaterialSymbol } from 'react-material-expressive';
 
-export default function Footer({ onSubscribe }) {
-  const handleSubmit = (event) => {
+interface FooterProps {
+  onSubscribe: () => void;
+}
+
+export default function Footer({ onSubscribe }: FooterProps) {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     onSubscribe();
   };

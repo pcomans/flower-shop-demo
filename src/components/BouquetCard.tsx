@@ -1,8 +1,14 @@
 import { useRef } from 'react';
 import { Button, Card, MaterialSymbol } from 'react-material-expressive';
+import type { Bouquet } from '../types';
 
-export default function BouquetCard({ bouquet, onAddToCart }) {
-  const imgRef = useRef(null);
+interface BouquetCardProps {
+  bouquet: Bouquet;
+  onAddToCart: (bouquet: Bouquet, sourceEl: HTMLElement | null) => void;
+}
+
+export default function BouquetCard({ bouquet, onAddToCart }: BouquetCardProps) {
+  const imgRef = useRef<HTMLImageElement>(null);
 
   return (
     <Card variant="elevated" className="bouquet-card">

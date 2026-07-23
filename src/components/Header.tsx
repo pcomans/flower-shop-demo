@@ -1,6 +1,13 @@
+import type { RefObject } from 'react';
 import { IconButton, MaterialSymbol, OnIconBadge } from 'react-material-expressive';
 
-export default function Header({ cartCount, onCartClick, cartIconRef }) {
+interface HeaderProps {
+  cartCount: number;
+  onCartClick: () => void;
+  cartIconRef: RefObject<HTMLSpanElement | null>;
+}
+
+export default function Header({ cartCount, onCartClick, cartIconRef }: HeaderProps) {
   return (
     <header className="site-header">
       <div className="site-header__inner">

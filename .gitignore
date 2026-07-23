@@ -2,16 +2,27 @@
 
 # dependencies
 node_modules
+/.pnp
+.pnp.*
 
 # testing
 coverage
 
+# next.js
+/.next/
+/out/
+next-env.d.ts
+
 # production
+build
 dist
 
 # misc
 .DS_Store
 .env
+.env*.local
 npm-debug.log
 *.local
-vite.config.js.timestamp-*
+
+# typescript
+*.tsbuildinfo

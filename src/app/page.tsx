@@ -1,14 +1,33 @@
+'use client';
+
 import { useState, useCallback, useRef } from 'react';
 import { Card, MaterialSymbol, Snackbar, SnackbarWrapper } from 'react-material-expressive';
-import AnnouncementBar from './components/AnnouncementBar.jsx';
-import Header from './components/Header.jsx';
-import Hero from './components/Hero.jsx';
-import BouquetCard from './components/BouquetCard.jsx';
-import CartPanel from './components/CartPanel.jsx';
-import Footer from './components/Footer.jsx';
-import { flyToCart } from './flyToCart.js';
+import AnnouncementBar from '../components/AnnouncementBar';
+import Header from '../components/Header';
+import Hero from '../components/Hero';
+import BouquetCard from '../components/BouquetCard';
+import CartPanel from '../components/CartPanel';
+import Footer from '../components/Footer';
+import { flyToCart } from '../flyToCart';
+import type { Bouquet, CartItem } from '../types';
 
-const BOUQUETS = [
+interface Feature {
+  icon: string;
+  title: string;
+  body: string;
+}
+
+interface Testimonial {
+  quote: string;
+  author: string;
+}
+
+interface SnackbarState {
+  open: boolean;
+  message: string;
+}
+
+const BOUQUETS: Bouquet[] = [
   { id: 1, name: 'Blush Hour', price: 54.99, description: 'Blush garden roses, pale ranunculus and ivory sweet peas with silvery eucalyptus.', image: '/img/bouquets/blush-hour.jpg' },
   { id: 2, name: 'Citrus Sunrise', price: 39.99, description: 'Orange ranunculus, yellow tulips, white chamomile and golden solidago.', image: '/img/bouquets/citrus-sunrise.jpg' },
   { id: 3, name: 'Moonlit Meadow', price: 49.99, description: 'Blue delphinium, white lisianthus, lavender scabiosa and dusty miller.', image: '/img/bouquets/moonlit-meadow.jpg' },
@@ -26,29 +45,29 @@ const BOUQUETS = [
   { id: 15, name: 'After the Rain', price: 47.99, description: 'Deep-blue iris, delphinium, white tulips, ferns and eucalyptus.', image: '/img/bouquets/after-the-rain.jpg' },
 ];
 
-const FEATURES = [
+const FEATURES: Feature[] = [
   { icon: 'local_florist', title: 'Fresh Daily', body: 'Flowers arrive from local Marin growers every single morning.' },
   { icon: 'local_shipping', title: 'Free Delivery', body: 'Free same-day delivery in San Anselmo on orders over $50.' },
   { icon: 'favorite', title: 'Hand-Tied With Love', body: 'Every bouquet is arranged by hand in our little shop on San Anselmo Ave.' },
 ];
 
-const TESTIMONIALS = [
+const TESTIMONIALS: Testimonial[] = [
   { quote: '“The Coral Charm bouquet made my wife cry happy tears. Best florist in Marin!”', author: '— Daniel R., San Anselmo' },
   { quote: '“Ordered at noon, flowers on my mom’s doorstep by 4. Absolutely beautiful.”', author: '— Priya S., Fairfax' },
   { quote: '“Bloom & Petal did the flowers for our wedding. Everyone still talks about them.”', author: '— Megan & Chris T.' },
 ];
 
 export default function App() {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [cartOpen, setCartOpen] = useState(false);
-  const [snackbar, setSnackbar] = useState({ open: false, message: '' });
-  const cartIconRef = useRef(null);
+  const [snackbar, setSnackbar] = useState<SnackbarState>({ open: false, message: '' });
+  const cartIconRef = useRef<HTMLSpanElement>(null);
 
-  const showSnackbar = useCallback((message) => {
+  const showSnackbar = useCallback((message: string) => {
     setSnackbar({ open: true, message });
   }, []);
 
-  const handleAddToCart = useCallback((bouquet, sourceEl) => {
+  const handleAddToCart = useCallback((bouquet: Bouquet, sourceEl: HTMLElement | null) => {
     flyToCart(sourceEl, cartIconRef.current);
     setCartItems((items) => {
       const existing = items.find((it) => it.bouquet.id === bouquet.id);
@@ -62,7 +81,7 @@ export default function App() {
     showSnackbar(`Added “${bouquet.name}” to your cart`);
   }, [showSnackbar]);
 
-  const handleChangeQty = useCallback((id, delta) => {
+  const handleChangeQty = useCallback((id: number, delta: number) => {
     setCartItems((items) =>
       items
         .map((it) => (it.bouquet.id === id ? { ...it, quantity: it.quantity + delta } : it))
@@ -70,7 +89,7 @@ export default function App() {
     );
   }, []);
 
-  const handleRemove = useCallback((id) => {
+  const handleRemove = useCallback((id: number) => {
     setCartItems((items) => items.filter((it) => it.bouquet.id !== id));
   }, []);
 

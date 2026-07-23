@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useRef, useState } from 'react';
 import { IconButton, MaterialSymbol } from 'react-material-expressive';
 
@@ -11,15 +13,21 @@ const DISMISS_KEY = 'announcementBarDismissed';
 const ROTATE_MS = 5000;
 
 export default function AnnouncementBar() {
-  const [dismissed, setDismissed] = useState(
-    () => sessionStorage.getItem(DISMISS_KEY) === 'true',
-  );
+  const [dismissed, setDismissed] = useState(false);
   const [promoIndex, setPromoIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const reducedMotion = useRef(
     typeof window !== 'undefined' &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches,
   ).current;
+
+  // Read the persisted dismissal after mount to stay SSR-safe (no sessionStorage
+  // access during render, which would differ between server and client).
+  useEffect(() => {
+    if (sessionStorage.getItem(DISMISS_KEY) === 'true') {
+      setDismissed(true);
+    }
+  }, []);
 
   useEffect(() => {
     if (dismissed || paused || reducedMotion) return undefined;

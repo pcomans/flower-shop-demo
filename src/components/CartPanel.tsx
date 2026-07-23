@@ -1,6 +1,16 @@
 import { Button, IconButton, MaterialSymbol, SideSheet } from 'react-material-expressive';
+import type { CartItem } from '../types';
 
-export default function CartPanel({ open, items, onClose, onChangeQty, onRemove, onCheckout }) {
+interface CartPanelProps {
+  open: boolean;
+  items: CartItem[];
+  onClose: () => void;
+  onChangeQty: (id: number, delta: number) => void;
+  onRemove: (id: number) => void;
+  onCheckout: () => void;
+}
+
+export default function CartPanel({ open, items, onClose, onChangeQty, onRemove, onCheckout }: CartPanelProps) {
   const total = items.reduce((sum, item) => sum + item.bouquet.price * item.quantity, 0);
 
   return (
