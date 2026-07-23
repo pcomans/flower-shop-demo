@@ -25,7 +25,7 @@ export default function Hero() {
     >
       <div className="py-[72px] px-4 pb-16">
         <div
-          className="inline-block bg-white/90 px-16 py-10 max-w-[640px]"
+          className="inline-block bg-white/[0.88] px-16 py-10 max-w-[640px]"
           style={{ paddingBottom: '3rem' }}
         >
           <h1

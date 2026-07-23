@@ -82,30 +82,30 @@ export default function HomePage() {
       {/* Features Section */}
       <section className="bg-white border-b border-gray-200">
         <div className="max-w-[1100px] mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center">
             <Flower className="w-12 h-12 text-[#B76370] mb-3" />
-            <h4 className="text-sm font-medium uppercase tracking-widest text-[#3F3F3F] mb-1">Fresh Daily</h4>
-            <p className="text-sm text-gray-500">Flowers arrive from local Marin growers every single morning.</p>
+            <h4 className="text-base font-medium uppercase tracking-[1.5px] text-[#3F3F3F] mb-1">Fresh Daily</h4>
+            <p className="text-sm text-[#757575]">Flowers arrive from local Marin growers every single morning.</p>
           </div>
           <div className="flex flex-col items-center">
             <Truck className="w-12 h-12 text-[#B76370] mb-3" />
-            <h4 className="text-sm font-medium uppercase tracking-widest text-[#3F3F3F] mb-1">Free Delivery</h4>
-            <p className="text-sm text-gray-500">Free same-day delivery in San Anselmo on orders over $50.</p>
+            <h4 className="text-base font-medium uppercase tracking-[1.5px] text-[#3F3F3F] mb-1">Free Delivery</h4>
+            <p className="text-sm text-[#757575]">Free same-day delivery in San Anselmo on orders over $50.</p>
           </div>
           <div className="flex flex-col items-center">
             <Heart className="w-12 h-12 text-[#B76370] mb-3" />
-            <h4 className="text-sm font-medium uppercase tracking-widest text-[#3F3F3F] mb-1">Hand-Tied With Love</h4>
-            <p className="text-sm text-gray-500">Every bouquet is arranged by hand in our little shop on San Anselmo Ave.</p>
+            <h4 className="text-base font-medium uppercase tracking-[1.5px] text-[#3F3F3F] mb-1">Hand-Tied With Love</h4>
+            <p className="text-sm text-[#757575]">Every bouquet is arranged by hand in our little shop on San Anselmo Ave.</p>
           </div>
         </div>
       </section>
 
       {/* Catalogue Section */}
       <section className="bg-[#FBF8F5]" id="shop">
-        <h2 className="text-center font-light text-3xl tracking-[3px] uppercase mt-12 pt-6 mb-1 text-[#8873A9]">
+        <h2 className="text-center font-light text-[32px] tracking-[3px] uppercase mt-12 pt-6 mb-1 text-[#8873A9]">
           Our Bouquets
         </h2>
-        <p className="text-center text-gray-500 mb-4">
+        <p className="text-center text-[#757575] mb-4">
           Hand-tied fresh every morning — order by 2pm for same-day delivery
         </p>
         <div className="max-w-[1180px] mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 pb-12">
@@ -117,7 +117,7 @@ export default function HomePage() {
 
       {/* Testimonials Section */}
       <section className="bg-white border-t border-gray-200 mt-8 pb-8">
-        <h2 className="text-center font-light text-3xl tracking-[3px] uppercase mt-12 pt-6 mb-6 text-[#8873A9]">
+        <h2 className="text-center font-light text-[32px] tracking-[3px] uppercase mt-12 pt-6 mb-6 text-[#8873A9]">
           What Our Customers Say
         </h2>
         <div className="max-w-[1100px] mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">

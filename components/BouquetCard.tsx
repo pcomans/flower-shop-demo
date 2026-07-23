@@ -9,7 +9,7 @@ interface BouquetCardProps {
 export default function BouquetCard({ bouquet, onAddToCart }: BouquetCardProps) {
   return (
     <div className="bg-white rounded shadow-md flex flex-col w-full">
-      <div className="bg-[#F7F2ED] relative w-full aspect-square overflow-hidden">
+      <div className="bg-[#F7F2ED] relative w-full h-56 overflow-hidden">
         <Image
           src={bouquet.image}
           alt={bouquet.name}

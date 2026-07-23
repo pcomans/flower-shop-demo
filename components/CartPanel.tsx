@@ -28,7 +28,7 @@ export default function CartPanel({ open, items, onClose, onRemove, onCheckout }
       </div>
 
       {items.length === 0 ? (
-        <p className="text-gray-500 text-center py-4">Your cart is empty. Go pick some flowers!</p>
+        <p className="text-[#757575] text-center py-4">Your cart is empty. Go pick some flowers!</p>
       ) : (
         <div>
           <ul className="list-none m-0 p-0 mb-2">
@@ -41,7 +41,7 @@ export default function CartPanel({ open, items, onClose, onRemove, onCheckout }
                   {item.bouquet.name}
                   {item.quantity > 1 ? ` × ${item.quantity}` : ''}
                 </span>
-                <span className="mx-1 text-gray-500">
+                <span className="mx-1 text-[#757575]">
                   ${(item.bouquet.price * item.quantity).toFixed(2)}
                 </span>
                 <button
