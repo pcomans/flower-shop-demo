@@ -1,5 +1,6 @@
 import { useState, useCallback, useRef } from 'react';
 import { Card, MaterialSymbol, Snackbar, SnackbarWrapper } from 'react-material-expressive';
+import AnnouncementBar from './components/AnnouncementBar.jsx';
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
 import BouquetCard from './components/BouquetCard.jsx';
@@ -81,6 +82,7 @@ export default function App() {
 
   return (
     <>
+      <AnnouncementBar />
       <Header cartCount={cartCount} onCartClick={() => setCartOpen(true)} cartIconRef={cartIconRef} />
       <Hero />
 
